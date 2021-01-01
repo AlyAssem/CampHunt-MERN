@@ -54,7 +54,7 @@ const FilterBox = ({ history }) => {
   return (
     <Form className='filter-box' onSubmit={submitHandler}>
       <Form.Row>
-        <Form.Group as={Col}>
+        <Form.Group as={Col} sm={12} md={6}>
           <Form.Label>What Camp?</Form.Label>
           <Form.Control
             type='text'
