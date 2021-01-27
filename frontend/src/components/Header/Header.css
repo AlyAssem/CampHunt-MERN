@@ -15,15 +15,6 @@
   margin-bottom: 2px;
 }
 
-@media screen and (max-width: 991px) {
-  .navbar-dark .navbar-brand {
-    font-size: 2rem;
-  }
-  .btn-info {
-    margin-left: 0;
-  }
-}
-
 .navbar-dark .navbar-nav .nav-link {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
@@ -54,4 +45,13 @@
 
 .navbar-dark .navbar-nav .nav-link:hover {
   color: #edf0f1;
+}
+
+@media screen and (max-width: 991px) {
+  .navbar-dark .navbar-brand {
+    font-size: 2rem;
+  }
+  .btn-info {
+    margin-left: 0;
+  }
 }
