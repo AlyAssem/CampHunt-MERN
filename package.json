@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node backend/server",
     "server": "node backend/server",
-    "build": "yarn frontend:install && yarn frontend:build",
+    "build": "npm frontend:install && npm frontend:build",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder",
