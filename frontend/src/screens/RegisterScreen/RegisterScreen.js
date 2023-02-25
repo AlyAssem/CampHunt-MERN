@@ -26,8 +26,8 @@ const RegisterScreen = ({ history }) => {
 
   const dispatch = useDispatch();
 
-  const userRegister = useSelector((state) => state.userRegister);
-  const { loading, error, userInfo } = userRegister;
+  const userLogin = useSelector((state) => state.userLogin);
+  const { loading, error, userInfo } = userLogin;
 
   useEffect(() => {
     if (userInfo) {
@@ -57,10 +57,8 @@ const RegisterScreen = ({ history }) => {
     // name error check
     if (!user.name) {
       errors.name = 'Name is required';
-    } else if (!/^\S.*?\S$/.test(user.name)) {
-      errors.name = "Name can't have white spaces at the begining & end";
-    } else if (/[0-9]/.test(user.name)) {
-      errors.name = 'Name is invalid';
+    } else if (!/^[a-zA-Z0-9_-]{3,16}$/.test(user.name)) {
+      errors.name = 'Name should be alphanumeric with size between 3-16';
     }
 
     // email error check
