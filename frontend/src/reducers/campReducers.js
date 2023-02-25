@@ -19,6 +19,7 @@ import {
   CAMP_UPDATE_SUCCESS,
   CAMP_UPDATE_FAIL,
   CAMP_UPDATE_RESET,
+  CAMP_DETAILS_EMPTY,
 } from '../constants/campConstants';
 
 export const campListReducer = (state = { camps: [] }, action) => {
@@ -53,6 +54,9 @@ export const campDetailsReducer = (
 
     case CAMP_DETAILS_FAIL:
       return { loading: false, error: action.payload };
+
+    case CAMP_DETAILS_EMPTY:
+      return {};
 
     default:
       return state;

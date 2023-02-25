@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../lib/scripts/axios';
 import {
   CAMP_LIST_REQUEST,
   CAMP_LIST_SUCCESS,
@@ -18,25 +18,28 @@ import {
   CAMP_UPDATE_REQUEST,
   CAMP_UPDATE_SUCCESS,
   CAMP_UPDATE_FAIL,
+  CAMP_DETAILS_EMPTY,
 } from '../constants/campConstants';
 
-export const listCamps = (filterQuery = '') => async (dispatch) => {
-  try {
-    dispatch({ type: CAMP_LIST_REQUEST });
+export const listCamps =
+  (filterQuery = '') =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: CAMP_LIST_REQUEST });
 
-    const { data } = await axios.get(`/api/camps${filterQuery}`);
+      const { data } = await axios.get(`/api/camps${filterQuery}`);
 
-    dispatch({ type: CAMP_LIST_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({
-      type: CAMP_LIST_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
+      dispatch({ type: CAMP_LIST_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({
+        type: CAMP_LIST_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
 
 export const listCampDetails = (id) => async (dispatch) => {
   try {
@@ -54,6 +57,10 @@ export const listCampDetails = (id) => async (dispatch) => {
           : error.message,
     });
   }
+};
+
+export const emptyCampDetails = (id) => async (dispatch) => {
+  dispatch({ type: CAMP_DETAILS_EMPTY });
 };
 
 export const createCamp = (camp) => async (dispatch, getState) => {
